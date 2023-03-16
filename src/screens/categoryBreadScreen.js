@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const categoryBreadScreen = () => {
+const CategoryBreadScreen = () => {
   return (
     <View style={styles.screen}>
       <Text>categoryBreadScreen</Text>
@@ -9,7 +9,7 @@ const categoryBreadScreen = () => {
   )
 }
 
-export default categoryBreadScreen
+export default CategoryBreadScreen
 
 const styles = StyleSheet.create({
     screen:{

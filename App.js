@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet} from 'react-native';
 import { useFonts, OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 import * as SplashScreen from 'expo-splash-screen';
+
 import ShopNavigator from './src/navigators/ShopNavigator';
 
 SplashScreen.preventAutoHideAsync();
@@ -15,7 +15,8 @@ export default function App() {
 
   React.useEffect(() => {
     if (FontsLoaded){
-      SplashScreen()} 
+      SplashScreen.hideAsync();
+    } 
   }, [FontsLoaded])
 
   if(!FontsLoaded){
@@ -26,5 +27,3 @@ export default function App() {
       <ShopNavigator/>
   );
 }
-
-const styles = StyleSheet.create({});

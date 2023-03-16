@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const breadDetailsScreen = () => {
+const BreadDetailsScreen = () => {
   return (
     <View style={styles.screen}>
       <Text>breadDetailsScreen</Text>
@@ -9,7 +9,7 @@ const breadDetailsScreen = () => {
   )
 }
 
-export default breadDetailsScreen
+export default BreadDetailsScreen
 
 const styles = StyleSheet.create({
     screen:{
