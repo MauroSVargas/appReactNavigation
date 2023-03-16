@@ -15,7 +15,7 @@ const ShopNavigator = () => {
     <NavigationContainer style={styles.screen}>
         <Stack.Navigator initialRouteName="Inicio">
             <Stack.Screen name="Inicio" component={CategoriesScreen}/>
-            <Stack.Screen name="CategoriaBread" component={CategoryBreadScreen}/>
+            <Stack.Screen name="Productos" component={CategoryBreadScreen}/>
             <Stack.Screen name="Detalles" component={BreadDetailsScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
