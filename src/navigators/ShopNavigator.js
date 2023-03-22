@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryBreadScreen from '../screens/CategoryBreadScreen'
 import BreadDetailsScreen from '../screens/BreadDetailsScreen'
+import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,8 +14,27 @@ const Stack = createNativeStackNavigator();
 const ShopNavigator = () => {
   return (
     <NavigationContainer style={styles.screen}>
-        <Stack.Navigator initialRouteName="Inicio">
-            <Stack.Screen name="Inicio" component={CategoriesScreen}/>
+        <Stack.Navigator 
+        initialRouteName="Inicio"
+        screenOptions={{
+          headerStyle: {  
+            backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
+        },
+          headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          }
+        }}
+        >
+          <Stack.Screen 
+          name="Inicio" 
+          component={CategoriesScreen}
+          options= {{
+            title: 'MI PAN'
+          }}
+          />
+            
+            
             <Stack.Screen name="Productos" component={CategoryBreadScreen}/>
             <Stack.Screen name="Detalles" component={BreadDetailsScreen}/>
         </Stack.Navigator>
