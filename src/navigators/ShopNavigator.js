@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryBreadScreen from '../screens/CategoryBreadScreen'
 import BreadDetailsScreen from '../screens/BreadDetailsScreen'
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen';
+import { Colors } from '../constants/Colors'
 
 const Stack = createNativeStackNavigator();
 
@@ -34,9 +34,19 @@ const ShopNavigator = () => {
           }}
           />
             
+          <Stack.Screen 
+          name="Productos" 
+          component={CategoryBreadScreen}
+          options={({ route }) => ({
+            title: route.params.name
+          })}
+          />
             
-            <Stack.Screen name="Productos" component={CategoryBreadScreen}/>
-            <Stack.Screen name="Detalles" component={BreadDetailsScreen}/>
+          <Stack.Screen 
+          name="Detalles" 
+          component={BreadDetailsScreen}
+          />
+        
         </Stack.Navigator>
     </NavigationContainer>
   )

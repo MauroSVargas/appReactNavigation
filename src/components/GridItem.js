@@ -3,7 +3,7 @@ import React from 'react'
 
 const GridItem = ({ item, onSelected }) => {
     return (
-        <View style={styles.GridItem}>
+        <View style={styles.gridItem}>
             <TouchableOpacity
                 style={{ ...styles.container, backgroundColor: item.color }}
                 onPress={() => onSelected(item)}
