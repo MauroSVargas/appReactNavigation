@@ -1,6 +1,4 @@
 import React from 'react'
-import { Platform, StyleSheet } from 'react-native';
-import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import CategoriesScreen from '../screens/CategoriesScreen'
@@ -13,7 +11,6 @@ const Stack = createNativeStackNavigator();
 
 const ShopNavigator = () => {
   return (
-    <NavigationContainer style={styles.screen}>
         <Stack.Navigator 
         initialRouteName="Inicio"
         screenOptions={{
@@ -48,15 +45,8 @@ const ShopNavigator = () => {
           />
         
         </Stack.Navigator>
-    </NavigationContainer>
   )
 }
 
 export default ShopNavigator
-const styles = StyleSheet.create({
-    screen:{
-        flex: 1,
-        alignContent: 'center',
-        justifyContent:'center'
-    }
-})
+
