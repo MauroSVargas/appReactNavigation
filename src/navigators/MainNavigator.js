@@ -4,9 +4,9 @@ import TabsNavigator from './TabsNavigator'
 
 
 const MainNavigator = () => {
-    return ( 
+    return (
         <NavigationContainer>
-            <TabsNavigator/>
+            <TabsNavigator />
         </NavigationContainer>
     )
 }
