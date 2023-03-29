@@ -1,19 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 
-const BreadDetailsScreen = ({ route, navigation }) => {
+const BreadDetailsScreen = ({ route }) => {
 
-  const { bread } = route.params
-
-  useEffect(() => {
-    navigation.setOptions({
-      title: bread.name
-    })
-  }, [])
+const bread = useSelector(state=>state.breads.selected)
 
   return (
-    <View style={styles.screen}>
+    <View style={styles.container}>
       <Text style={styles.title}>{bread.name}</Text>
       <Text>{bread.description}</Text>
       <Text>Precio: $ {bread.price}</Text>
@@ -23,16 +18,17 @@ const BreadDetailsScreen = ({ route, navigation }) => {
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  screen:{
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff'
-  },
-  title: {
-    fontSize: 20,
-    fontFamily: 'OpenSans_400Regular',
-  }
+    backgroundColor: '#FFF'
+},
+title: {
+    fontSize:20,
+    fontFamily: 'OpenSans_700Bold',
+    marginBottom:10
+}
 })
 
 export default BreadDetailsScreen

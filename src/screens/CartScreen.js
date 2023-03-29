@@ -4,28 +4,30 @@ import CartItem from '../components/CartItem';
 import { CART } from '../data/cart';
 
 const CartScreen = () => {
+  const total= 12000;
 
-  const onDelete = (item) => {
-    console.log('delete', item)
-  }
-  const onConfirm = () => {
-    console.log('confirm')
-  }
-  const renderItems = ({ item }) => <CartItem item={item} onDelete={onDelete} />
+  const onHandleConfirmCart = ()=>console.log("Confirma carrito");
+  const onHandleDeleteItem=()=>console.log("Elimina item")
+
+  const renderCartItem = ({item})=>(
+    <CartItem item={item} onDelete={onHandleDeleteItem} />
+  )
 
   return (
     <View style={styles.container}>
+      <View style={styles.list}>
       <FlatList
-        style={styles.list}
         data={CART}
-        renderItem={renderItems}
+        renderItem={renderCartItem}
         keyExtractor={item => item.id}
       />
+      </View>
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.confirm} onPress={onConfirm} >
+        <TouchableOpacity style={styles.confirm} onPress={onHandleConfirmCart} >
+          <Text>Confirmar</Text>
           <View style={styles.total}>
             <Text style={styles.text}>Total:</Text>
-            <Text style={styles.text}>$ 100</Text>
+            <Text style={styles.text}>$</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
+    backgroundColor: '#fff',
     paddingBottom: 120
   },
   list: {
@@ -50,12 +53,12 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
   },
   confirm: {
-    backgroundColor: '#ccc',
-    borderRadius: 10,
-    padding: 10,
+    backgroundColor:"#F5F5F5",
+    borderRadius:10,
+    padding:10,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+    alignItems:'center',
+    justifyContent: 'space-between',
   },
   total: {
     flexDirection: 'row',

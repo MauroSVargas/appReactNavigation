@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -14,7 +14,7 @@ const BottomTabs = createBottomTabNavigator()
 const TabsNavigator = () => {
   return (
     <BottomTabs.Navigator
-      initialRouteName='Shop-tab'
+      initialRouteName='Shop'
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -23,11 +23,11 @@ const TabsNavigator = () => {
 
     >
       <BottomTabs.Screen
-        name="Shop-tab"
+        name="ShopTab"
         component={ShopNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View style={styles.tabBarIcon}>
+            <View style={styles.item}>
               <FontAwesome name="shopping-bag" size={24} color="black" />
               <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Tienda</Text>
             </View>
@@ -36,11 +36,11 @@ const TabsNavigator = () => {
       />
 
       <BottomTabs.Screen
-        name="cart-tab"
+        name="CartTab"
         component={CartNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View style={styles.tabBarIcon}>
+            <View style={styles.item}>
               <FontAwesome name="shopping-cart" size={24} color="black" />
               <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Carrito</Text>
             </View>
@@ -49,11 +49,11 @@ const TabsNavigator = () => {
       />
 
       <BottomTabs.Screen
-        name="Orders-tab"
+        name="OrdersTab"
         component={OrderScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <View style={styles.tabBarIcon}>
+            <View style={styles.item}>
               <MaterialIcons name="list-alt" size={24} color="black" />
               <Text style={{ color: focused ? '#7F5DF0' : '#748C94' }}>Ordenes</Text>
             </View>
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     height: 90,
   },
-  tabBarIcon: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  item:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
   }
 })

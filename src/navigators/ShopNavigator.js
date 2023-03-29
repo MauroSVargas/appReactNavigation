@@ -1,5 +1,6 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Platform } from 'react-native'
 
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryBreadScreen from '../screens/CategoryBreadScreen'
@@ -42,6 +43,7 @@ const ShopNavigator = () => {
       <Stack.Screen
         name="Detalles"
         component={BreadDetailsScreen}
+        options={({route})=>({title: route.params.name})}
       />
 
     </Stack.Navigator>

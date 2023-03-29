@@ -1,30 +1,36 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { FlatList } from 'react-native'
-import { BREADS } from '../data/breads'
 import BreadItem from '../components/BreadItem'
+
+import { useSelector,useDispatch } from 'react-redux'
+import { filterBreads,selectBread } from '../store/actions/bread.action'
 
 
 const CategoryBreadScreen = ({ navigation, route }) => {
+    
+    const categoryBreads = useSelector(state=>state.breads.filteredBreads)
+    const dispatch = useDispatch()
+    const category = useSelector(state=>state.categories.selected)
 
-    const { categoryId } = route.params
+    useEffect(()=>{
+        dispatch(filterBreads(category.id))
+    },[])
 
-    const breads = BREADS.filter(bread => bread.category === categoryId);
-
-    const handleSelected = (item) => {
-        navigation.navigate('Detalles', {
-            bread: item
+    const onHandleSelectedBread = (item)=>{
+        dispatch(selectBread(item.id))
+        navigation.navigate('Detalles',{
+            name:item.title,
         })
     }
 
-    const RenderBreadItem = ({ item }) => (
-        <BreadItem item={item} onSelected={handleSelected} />
+    const renderItemBread = ({item}) =>(
+        <BreadItem item={item} onSelected={onHandleSelectedBread} />
     )
-
+    
     return (
-        <FlatList
-            data={breads}
-            keyExtractor={item => item.id}
-            renderItem={RenderBreadItem}
+        <FlatList 
+            data={categoryBreads}
+            renderItem={renderItemBread}
         />
     )
 }
