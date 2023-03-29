@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator()
 const CartNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName='cart'
+            initialRouteName='Cart'
             screenOptions={{
                 headerStyle: {
                     backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
@@ -22,7 +22,7 @@ const CartNavigator = () => {
             }}
         >
             <Stack.Screen
-                name="cart"
+                name="Cart"
                 component={CartScreen}
                 options={{ title: 'carrito' }}
             />

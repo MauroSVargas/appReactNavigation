@@ -10,24 +10,24 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
-  const [FontsLoaded] = useFonts ({
+  const [FontsLoaded] = useFonts({
     OpenSans_400Regular,
     OpenSans_700Bold
   })
 
   React.useEffect(() => {
-    if (FontsLoaded){
+    if (FontsLoaded) {
       SplashScreen.hideAsync();
-    } 
+    }
   }, [FontsLoaded])
 
-  if(!FontsLoaded){
+  if (!FontsLoaded) {
     return null;
   }
 
   return (
     <Provider store={store}>
-    <MainNavigator />   
-  </Provider>
+      <MainNavigator />
+    </Provider>
   );
 }

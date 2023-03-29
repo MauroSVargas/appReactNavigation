@@ -1,5 +1,5 @@
-import { FlatList, View } from 'react-native'
 import React from 'react'
+import { FlatList, View } from 'react-native'
 import { ORDERS } from '../data/orders'
 import OrderItems from '../components/OrderItems'
 
@@ -15,7 +15,7 @@ const OrderScreen = () => {
     )
 
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList 
         data={ORDERS}
         renderItem={renderOrdersItem}
@@ -26,3 +26,4 @@ const OrderScreen = () => {
 }
 
 export default OrderScreen
+

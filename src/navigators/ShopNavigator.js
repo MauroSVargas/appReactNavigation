@@ -33,7 +33,7 @@ const ShopNavigator = () => {
       />
 
       <Stack.Screen
-        name="Productos"
+        name="Breads"
         component={CategoryBreadScreen}
         options={({ route }) => ({
           title: route.params.name

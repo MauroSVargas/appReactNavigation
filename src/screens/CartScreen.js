@@ -4,7 +4,7 @@ import CartItem from '../components/CartItem';
 import { CART } from '../data/cart';
 
 const CartScreen = () => {
-  const total= 12000;
+  const total=12000;
 
   const onHandleConfirmCart = ()=>console.log("Confirma carrito");
   const onHandleDeleteItem=()=>console.log("Elimina item")

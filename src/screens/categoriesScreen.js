@@ -12,8 +12,11 @@ const CategoriesScreen = ({ navigation }) => {
 
     const onHandleSelectedCategory = (item) => {
       dispatch(selectCategory(item.id))
-
-      navigation.push("Breads",{name:item.title})
+         navigation.navigate('Breads',{
+            categoryId: item.id,
+            name: item.title,
+        }) 
+       // navigation.push("Breads",{name:item.title})
   }
 
   const renderGridItem = ({item}) =>{
